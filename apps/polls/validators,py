@@ -1,0 +1,4 @@
+from django.core.exceptions import ValidationError
+
+# code der bestimmte Nutzereingaben prüft und wenn diese falsch sin wird ein Fehler generiert
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Umfrageergebnisse für "{{ poll.title }}"</title>
+</head>
+<body>
+    <h1>Umfrageergebnisse für "{{ poll.title }}"</h1>
+    
+    <h2>Gesamtzahl der "Ja"-Stimmen: {{ total_yes_votes }}</h2>
+    
+    <h2>Ergebnisse für alle Nutzer:</h2>
+    <ul>
+        <li>Ja: {{ vote_counts.ja }}</li>
+        <li>Nein: {{ vote_counts.nein }}</li>
+        <li>Vielleicht: {{ vote_counts.vielleicht }}</li>
+    </ul>
+    
+    <a href="{% url 'view_polls' %}">Zurück zur Umfragenliste</a>
+</body>
+</html>
+
+
+
+
+

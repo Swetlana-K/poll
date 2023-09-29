@@ -1,0 +1,17 @@
+li a {
+    font-weight: bold !important;
+    color: rgb(94, 101, 175);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+body {
+    background: white url("images/background.png") no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikale Ausrichtung zentrieren */
+    align-items: center; /* Horizontale Ausrichtung zentrieren */
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 

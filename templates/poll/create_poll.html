@@ -1,0 +1,55 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'poll/create_poll_style.css' %}" />
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Poll - Sweta's Poll</title>
+    <link rel="stylesheet" href="{% static 'poll/create_poll_style.css' %}">
+</head>
+<body>
+    <h1>Erstelle eine neue Umfrage</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="title">Titel der Umfrage:</label>
+      
+      <input type="text" id="title" name="title" rrequired style="height: 30px; font-size:20px;" />
+
+      <h2>Datum und Uhrzeit:</h2>
+      <div id="date-time-proposals">
+        <div class="proposal">
+          <label for="date_proposals[]">Datum:</label>
+          
+          <input type="date" id="date_proposals[]" name="date_proposals[]" required style="height: 30px; font-size: 20px;" />
+          <label for="time_proposals[]">Uhrzeit:</label>
+          
+          <input type="time" id="time_proposals[]" name="time_proposals[]" required style="height: 30px; font-size: 20px;" />
+          <button type="button" class="remove-proposal">Datum entfernen</button>
+        </div>
+      </div>
+      <button type="button" id="add-proposal">Datum hinzufügen</button>
+      <button type="submit" id="submit-button">Erstelle die Umfrage</button>
+    </form>
+
+    <script>
+      document.getElementById("add-proposal").addEventListener("click", function () {
+        var proposalsDiv = document.getElementById("date-time-proposals");
+        var newProposal = proposalsDiv.children[0].cloneNode(true);
+        proposalsDiv.appendChild(newProposal);
+        newProposal.querySelector(".remove-proposal").style.display = "inline-block";
+
+        newProposal.querySelector(".remove-proposal").addEventListener("click", function () {
+          proposalsDiv.removeChild(newProposal);
+        });
+      });
+    </script>
+</body>
+</html>
+
+
+
+
+

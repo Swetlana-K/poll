@@ -1,0 +1,46 @@
+{% block content %}
+<h1>Abstimmung: {{ poll.title }}</h1>
+
+<!-- Formular zur Eingabe des Wählers -->
+<form method="post" action="{% url 'vote' poll_id=poll.id %}">
+  {% csrf_token %}
+  <table>
+    <thead>
+      <tr>
+        <th>Wähler</th>
+        {% for date_option in date_options %}
+        <th>
+          {{ date_option.date_proposal }} - {{ date_option.time_proposal }}
+        </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <label for="user_name">Ihr Name:</label>
+          <input type="text" id="user_name" name="user_name" required />
+        </td>
+        {% for date_option in date_options %}
+        <td>
+          <select
+            id="response_choice_{{ date_option.id }}"
+            name="response_choice_{{ date_option.id }}"
+          >
+            <option value="ja">Ja</option>
+            <option value="nein">Nein</option>
+            <option value="vielleicht">Vielleicht</option>
+          </select>
+          
+          <input type="hidden" name="date_option_id" value="{{ date_option.id }}">
+        </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="submit">Abstimmen</button>
+</form>
+
+<a href="{% url 'view_poll' poll_id=poll.id %}">Zeige Umfrageergebnisse</a>
+{% endblock %}
