@@ -1,0 +1,70 @@
+a {
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+body {
+    background: white url("images/background.png") no-repeat;
+    background-position: center center;
+    background-size: cover; /* Hintergrundbild an die Größe des Containers anpassen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Schriftgröße für die Auswahlknöpfe  */
+.response-choice {
+    font-size: 16px;
+    background-color: #7bb0bd; 
+}
+
+/* Schriftgröße für den Abstimmungsknopf  */
+.vote-button {
+    font-size: 18px;
+    background-color: #ae7bbd; 
+}
+/* Container für die Antwort-Auswahlliste */
+.response-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stil für das Label der Antwort-Auswahlliste */
+.response-label {
+    margin-bottom: 5px;
+}
+
+/* Stil für den Bereich mit dem Wählerinformationen */
+.voter-info {
+    position: relative;
+    background-color: #7bb0bd;
+    padding: 10px; /* Optional: Füge Padding hinzu, um Platz für die Ecken zu lassen */
+    border-radius: 5px; /* Ändere diesen Wert für die abgerundeten Ecken */
+    height: 30px;
+}
+
+/* Verlängere das Hintergrundfenster auf beiden Seiten */
+.voter-info::before,
+.voter-info::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px; /* Ändere diesen Wert, um die Breite der Verlängerung anzupassen */
+    
+    border-radius: 10px; /* Für abgerundete Ecken auf beiden Seiten */
+}
+
+/* Verlängert das Hintergrundfenster auf der rechten Seite */
+.voter-info::after {
+    right: -10px; /* Breite der Verlängerung */
+}
+
+/* Verlängert das Hintergrundfenster auf der linken Seite */
+.voter-info::before {
+    left: -10px; /*  Breite der Verlängerung */
+}

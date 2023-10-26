@@ -1,19 +1,22 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'poll/home_style.css' %}">
+<link rel="stylesheet" href="{% static 'poll/home.css' %}" />
 
+<!--  Eingangsseite -->
 
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Sweta's Poll</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Umfragen</h1>
-    <p>Klick <a href="{% url 'view_polls' %}">hier</a> um zu den Umfragen zu kommen.</p>
-</body>
+    <p>
+      Klick <a href="{% url 'view_polls' %}">hier</a> um zu den Umfragen zu
+      kommen.
+    </p>
+    <p>
+      Klick <a href="{% url 'create_poll' %}">hier</a> um eine neue Umfrage zu
+      erstellen.
+    </p>
+  </body>
 </html>
-
-
-
-
-

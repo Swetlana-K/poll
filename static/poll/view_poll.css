@@ -1,0 +1,81 @@
+li a {
+    color: rgb(94, 101, 175);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+body {
+    background: white url("images/background.png") no-repeat;
+    background-position: center center;
+    background-size: cover; /* Hintergrundbild an die Größe des Containers anpassen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+
+h1, h2 {
+    color: #333; 
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #9b6514; 
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Stil für Zellen mit Wählername */
+.voter-name-cell {
+    background-color: rgb(240, 233, 239);
+    font-size: 16px;
+}
+
+/* Stil für Zellen mit Antwortauswahl */
+
+/* Unterschiedliche Hintergrundfarben basierend auf der Antwortauswahl */
+.response-choice-cell.ja {
+    background-color: #D3E7C5; /* Grün für "ja" */
+    text-align: center;
+}
+.response-choice-cell.nein {
+    background-color: #F4E0E8; /* Rot für "nein" */
+    text-align: center;
+}
+
+.response-choice-cell.vielleicht {
+    background-color: #FDF2D1; /* Gelb für "vielleicht" */
+    text-align: center;
+}
+
+.table-container {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.response-choice-cell {
+    background-color: white; /* Weiß für Summe */
+    text-align: center;
+    font-size: 16px;
+}
+.table-header {
+    background-color: #f2f2f2; /* Hintergrundfarbe für die Header-Zeile */
+    padding: 8px;
+}

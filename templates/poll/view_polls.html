@@ -1,27 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'poll/create_poll.css' %}" />
+
+<!-- Ansicht für eine Liste von Umfragen   -->
+
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Umfragen</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Umfragen</h1>
-    
-    <ul>
-        {% for poll in polls|slice:":-10" %}
-            <li>
-                <a href="{% url 'vote' poll.id %}">{{ poll.title }}</a>
-                - Erstellt am: {{ poll.timestamp|date:"d-m-Y" }}
-            </li>
 
-        {% empty %}
-            <p>Keine Umfragen verfügbar.</p>
-        {% endfor %}
+
+    <ul>
+      {% for poll in polls|slice:":-10" %}
+      <li>
+        <a href="{% url 'vote' poll.id %}">{{ poll.title }}</a>
+        - Erstellt am: {{ poll.timestamp|date:"d-m-Y" }}
+      </li>
+
+      {% empty %}
+      <p>Keine Umfragen verfügbar.</p>
+      {% endfor %}
     </ul>
 
     <a href="{% url 'create_poll' %}">Neue Umfrage erstellen</a>
-</body>
+  </body>
 </html>
 
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'poll/view_polls_style.css' %}">

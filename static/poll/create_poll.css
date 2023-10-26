@@ -1,0 +1,85 @@
+/* poll/create_poll.css */
+
+h1 {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.big-label {
+  font-size: 18px; /* Größe nach Bedarf anpassen */
+  font-weight: bold;
+}
+
+
+a {
+  font-size: 18px; 
+  font-weight: bold;
+}
+
+.create-poll-link {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px; /* Größere Polsterung für Höhe und Breite */
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#submit-button {
+  background-color: #216491; /* Hintergrundfarbe ändern */
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none; /* Entfernen der Randstilisierung */
+  cursor: pointer;
+}
+
+#add-proposal {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.remove-proposal {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #e74c3c; /* Rote Hintergrundfarbe für den "Datum entfernen"-Button */
+  color: white;
+  border: none;
+  display: none; /* Starten mit ausgeblendeten "Datum entfernen"-Buttons */
+  font-size: 18px;
+}
+
+body {
+  background: white url("images/background.png") no-repeat;
+  background-position: center center;
+  background-size: cover; /* Hintergrundbild an die Größe des Containers anpassen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Allgemeines Styling für Input-Elemente */
+.input-field {
+  height: 30px;
+  font-size: 20px;
+}
+
+/* Styling für Schaltflächen */
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}

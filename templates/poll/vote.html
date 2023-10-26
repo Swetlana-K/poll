@@ -1,8 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'poll/vote.css' %}" />
+
 {% block content %}
 <h1>Abstimmung: {{ poll.title }}</h1>
 
-<!-- Formular zur Eingabe des Wählers -->
-<form method="post" action="{% url 'vote' poll_id=poll.id %}">
+<!-- Abstimmungsansicht - Formular zur Eingabe des Wählers -->
+
+<form
+  method="post"
+  action="{% url 'vote' poll_id=poll.id %}?next={% url 'view_poll' poll_id=poll.id %}"
+>
   {% csrf_token %}
   <table>
     <thead>
@@ -10,36 +17,50 @@
         <th>Wähler</th>
         {% for date_option in date_options %}
         <th>
-          {{ date_option.date_proposal }} - {{ date_option.time_proposal }}
+          <div class="date-option-header">
+            | {{ date_option.date_proposal }} |<br>{{ date_option.time_proposal }} Uhr
+        </div>
         </th>
         {% endfor %}
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
-          <label for="user_name">Ihr Name:</label>
-          <input type="text" id="user_name" name="user_name" required />
+        <td class="voter-info">
+          <label for="voter_name">Ihr Name:</label>
+          <input type="text" id="voter_name" name="voter_name" required />
         </td>
         {% for date_option in date_options %}
         <td>
-          <select
-            id="response_choice_{{ date_option.id }}"
-            name="response_choice_{{ date_option.id }}"
-          >
-            <option value="ja">Ja</option>
-            <option value="nein">Nein</option>
-            <option value="vielleicht">Vielleicht</option>
-          </select>
-          
-          <input type="hidden" name="date_option_id" value="{{ date_option.id }}">
+          <div class="response-container">
+            <label
+              for="response_choice_{{ date_option.id }}"
+              class="response-label"
+              >Ihre Antwort:</label
+            >
+            <select
+              id="response_choice_{{ date_option.id }}"
+              name="response_choice_{{ date_option.id }}"
+              class="response-choice"
+            >
+              <option value="ja">Ja</option>
+              <option value="nein">Nein</option>
+              <option value="vielleicht">Vielleicht</option>
+            </select>
+
+            <input
+              type="hidden"
+              name="date_option_ids"
+              value="{{ date_option.id }}"
+            />
+          </div>
         </td>
         {% endfor %}
       </tr>
     </tbody>
   </table>
 
-  <button type="submit">Abstimmen</button>
+  <button type="submit" class="vote-button">Abstimmen</button>
 </form>
 
 <a href="{% url 'view_poll' poll_id=poll.id %}">Zeige Umfrageergebnisse</a>

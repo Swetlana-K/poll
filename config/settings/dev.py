@@ -22,10 +22,13 @@ ALLOWED_HOSTS = ["127.0.0.1"]
     }
 } """
 
-DATABASES = {'default': {'ENGINE': 'django.db.backends.postgresql_psycopg2','NAME': env.str('DB_NAME'),
+DATABASES = {'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                'NAME': env.str('DB_NAME'),
                 'USER': env.str('DB_USER'),
                 'PASSWORD': env.str('DB_PWD'),
                 'HOST': env.str('DB_HOST'),
                 'PORT': env.int('DB_PORT'),
                 }
              }
+

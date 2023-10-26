@@ -1,25 +1,54 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'poll/view_poll.css' %}" />
+
+<!-- Ansicht für die Umfrageergebnisse   -->
+
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Umfrageergebnisse für "{{ poll.title }}"</title>
-</head>
-<body>
-    <h1>Umfrageergebnisse für "{{ poll.title }}"</h1>
+  </head>
+  <body>
+    <h1>Umfrageergebnisse für "{{ poll.title }}":</h1>
+
+    <h2>Ersteller der Umfrage: {{ creator_name }}</h2>
+
+<!-- Tabelle für die Umfrageergebnisse  -->
+    <table border="1" class="table-container">
+      <thead>
+        <tr>
+          <th class="table-header">Name</th>
+          {% for date_option in date_options %}
+          <th class="table-header">
+            {{ date_option.date_proposal }} - {{ date_option.time_proposal }}
+          </th>
+          {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for voter_name, date_responses in voter_responses.items %}
+        <tr>
+          <td class="voter-name-cell">{{ voter_name }}</td>
+          {% for date_option, response_choice in date_responses.items %}
+          <td class="response-choice-cell {{ response_choice|lower }}">
+            {{ response_choice }}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        <tr>
+          <td class="voter-name-cell">Summe der Ja-Stimmen</td>
+          {% for date_option, data in date_choices_sum.items %}
+          <td class="response-choice-cell">
+            {{ data.sum_of_yes }}
+          </td>
+        {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+   <a href="{% url 'view_polls' %}">Zurück zur Umfragenliste</a>
     
-    <h2>Gesamtzahl der "Ja"-Stimmen: {{ total_yes_votes }}</h2>
-    
-    <h2>Ergebnisse für alle Nutzer:</h2>
-    <ul>
-        <li>Ja: {{ vote_counts.ja }}</li>
-        <li>Nein: {{ vote_counts.nein }}</li>
-        <li>Vielleicht: {{ vote_counts.vielleicht }}</li>
-    </ul>
-    
-    <a href="{% url 'view_polls' %}">Zurück zur Umfragenliste</a>
-</body>
+  </body>
 </html>
-
-
-
-
 

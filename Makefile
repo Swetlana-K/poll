@@ -1,4 +1,4 @@
-# make dev-start
+# make
 dev-start:
 	python3 manage.py runserver --settings=config.settings.dev
 
@@ -6,6 +6,7 @@ dev-start:
 dev-install:
 	pip install -r requirements/dev.txt
 
+# make dev-makemigrations
 dev-makemigrations:
 	python3 manage.py makemigrations --settings=config.settings.dev
 
@@ -30,4 +31,8 @@ dev-rollback:
 # python3 manage.py dbshell --settings=config.settings.dev
 # \dt
 
+# create superuser
 # python manage.py createsuperuser --settings=config.settings.dev
+
+# Testing
+# python manage.py test --settings=config.settings.dev

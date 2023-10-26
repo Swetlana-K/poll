@@ -1,0 +1,26 @@
+a {
+    font-weight: bold !important;
+    font-size: 18px;
+    color: rgb(175, 94, 105);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+p {
+    font-size: 18px; /* Größe nach Bedarf anpassen */
+    font-weight: bold;
+
+}
+
+
+body {
+    background: white url("images/background.png") no-repeat;
+    background-position: center center;
+    background-size: cover; /* Hintergrundbild an die Größe des Containers anpassen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

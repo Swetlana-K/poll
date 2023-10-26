@@ -1,6 +1,7 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'poll/create_poll_style.css' %}" />
+<link rel="stylesheet" href="{% static 'poll/create_poll.css' %}" />
 
+<!--  Erstellung einer neuen Umfrage -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,32 +9,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Poll - Sweta's Poll</title>
-    <link rel="stylesheet" href="{% static 'poll/create_poll_style.css' %}">
+    <link rel="stylesheet" href="{% static 'poll/create_poll.css' %}">
 </head>
 <body>
-    <h1>Erstelle eine neue Umfrage</h1>
+    <h1>Neue Umfrage erstellen</h1>
     <form method="post">
       {% csrf_token %}
-      <label for="title">Titel der Umfrage:</label>
+      <label for="creator_name" class="big-label">Dein Name:</label>
+      <input type="text" id="creator_name" name="creator_name" required class="input-field" />
       
-      <input type="text" id="title" name="title" rrequired style="height: 30px; font-size:20px;" />
+      <label for="title" class="big-label">Titel der Umfrage:</label>
+      <input type="text" id="title" name="title" required class="input-field" />
 
-      <h2>Datum und Uhrzeit:</h2>
+      <h2>Datum und Zeit:</h2>
       <div id="date-time-proposals">
         <div class="proposal">
-          <label for="date_proposals[]">Datum:</label>
+          <label for="date_proposals[]" class="big-label">Datum:</label>
+          <input type="date" id="date_proposals[]" name="date_proposals[]" required class="input-field" />
           
-          <input type="date" id="date_proposals[]" name="date_proposals[]" required style="height: 30px; font-size: 20px;" />
-          <label for="time_proposals[]">Uhrzeit:</label>
-          
-          <input type="time" id="time_proposals[]" name="time_proposals[]" required style="height: 30px; font-size: 20px;" />
+          <label for="time_proposals[]" class="big-label">Zeit:</label>
+          <input type="time" id="time_proposals[]" name="time_proposals[]" required class="input-field" />
+
           <button type="button" class="remove-proposal">Datum entfernen</button>
         </div>
       </div>
       <button type="button" id="add-proposal">Datum hinzufügen</button>
-      <button type="submit" id="submit-button">Erstelle die Umfrage</button>
+      <button type="submit" id="submit-button">Umfrage erstellen</button>
     </form>
+</body>
+</html>
 
+
+<!--  JavaScript für das Hinzufügen/Entfernen von Datum/Zeit-Vorschlägen -->
     <script>
       document.getElementById("add-proposal").addEventListener("click", function () {
         var proposalsDiv = document.getElementById("date-time-proposals");
@@ -46,8 +53,14 @@
         });
       });
     </script>
+  
+    <a href="{% url 'view_polls' %}"> Zu aktuellen Umfragen</a>
+
+
 </body>
 </html>
+
+
 
 
 
